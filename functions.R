@@ -32,13 +32,22 @@ d_vestland = l_vestland$data %>% as_tibble()
 d_vestland
 }
 
+d_sensors = get_all_vestland_sensors("6e375444-e7e7-47b4-bc4b-56bf18fbeab8")
+
 # Function for obtaining latitude and longitude of a sensor
 # given sensor ID, and a dataframe of sensors.
 # Returns a 1X2 vector with latitude, longitude
 # sensor_id             # String. ID of a sensor. For instance, "SN50810" denotes the sensor at Åsane, Bergen.
 # sensors_df            # Dataframe or tibble. Must include the sensor id column, which must have the name "id"
 get_coordinates_by_id = function(sensor_id, sensors_df){
+  stopifnot(is.data.frame(sensors_df))
+  # find coordinates
   coords_df = sensors_df %>% filter(id == sensor_id) %>% select(geometry.coordinates)
-  coords_v = coords_df$geometry.coordinates
+  coords_l = coords_df$geometry.coordinates 
+  
+  # return vector of two elements
+  element_number = length(coords_l)
+  stopifnot(element_number == 1)
+  coords_v = coords_l %>% pluck(element_number)
   coords_v
 }
