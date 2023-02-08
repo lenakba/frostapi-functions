@@ -34,7 +34,8 @@ vestland_df
 
 # Function for obtaining latitude and longitude of a sensor
 # given sensor ID, and a dataframe of sensors.
-# Returns a 1X2 vector with latitude, longitude
+# Returns a 1X2 vector with latitude, longitude.
+# Argument(s):
 # sensor_id             # String. ID of a sensor. For instance, "SN50810" denotes the sensor at Åsane, Bergen.
 # sensors_df            # Dataframe or tibble. Must include the sensor id column, which must have the name "id"
 get_coordinates_by_id = function(sensor_id, sensors_df){
