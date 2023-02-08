@@ -21,5 +21,3 @@ d_vestland = l_vestland$data %>% as_tibble()
 d_vestland
 }
 
-get_all_vestland_sensors("6e375444-e7e7-47b4-bc4b-56bf18fbeab8")
-
