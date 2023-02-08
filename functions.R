@@ -6,7 +6,7 @@
 library(jsonlite) # reading JSON files
 library(tidyverse) # datawrangling
 
-# function for obtaining Vestland sensor data given a FROST api ID
+# Function for obtaining Vestland sensor data given a FROST api ID
 # Requires a FROST api ID (Client ID). 
 # This can be obtained here: https://frost.met.no/howto.html
 # The function extracts data from /sources 
