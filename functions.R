@@ -6,7 +6,15 @@
 library(jsonlite) # reading JSON files
 library(tidyverse) # datawrangling
 
-# function for obtaining Vestland sensors given a FROST api ID
+# function for obtaining Vestland sensor data given a FROST api ID
+# Requires a FROST api ID (Client ID). 
+# This can be obtained here: https://frost.met.no/howto.html
+# The function extracts data from /sources 
+# Returns an object of class dataframe and class tibble. 
+# The dataframe includes the id, name and all other variables/features available 
+# from /sources including the latitude and longitude. 
+# Argument(s):
+# frost_api_id           Client ID to access the FROST api.          
 get_all_vestland_sensors = function(frost_api_id){
 
   # extract data from source
@@ -24,8 +32,11 @@ d_vestland = l_vestland$data %>% as_tibble()
 d_vestland
 }
 
-# function for obtaining latitude and longitude of a sensor
-# given sensor ID, and a dataframe of sensors
+# Function for obtaining latitude and longitude of a sensor
+# given sensor ID, and a dataframe of sensors.
+# Returns a 1X2 vector with latitude, longitude
+# sensor_id             # String. ID of a sensor. For instance, "SN50810" denotes the sensor at Åsane, Bergen.
+# sensors_df            # Dataframe or tibble. Must include the sensor id column, which must have the name "id"
 get_coordinates_by_id = function(sensor_id, sensors_df){
   coords_df = sensors_df %>% filter(id == sensor_id) %>% select(geometry.coordinates)
   coords_v = coords_df$geometry.coordinates
