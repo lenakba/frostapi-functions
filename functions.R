@@ -5,3 +5,6 @@
 
 library(jsonlite) # reading JSON files
 library(tidyverse) # datawrangling
+
+# Insert your own client ID here
+client_id = '<INSERT CLIENT ID HERE>'
