@@ -6,5 +6,20 @@
 library(jsonlite) # reading JSON files
 library(tidyverse) # datawrangling
 
-# Insert your own client ID here
-client_id = '<INSERT CLIENT ID HERE>'
+# function for obtaining Vestland sensors given a FROST api ID
+get_all_vestland_sensors = function(frost_api_id){
+
+  # extract data from source
+  endpoint = paste0("https://", frost_api_id, "@frost.met.no/sources/v0.jsonld")
+  county = "Vestland"
+  url = paste0(
+    endpoint, "?",
+    "county=", county)
+# Issue an HTTP GET request and extract JSON data
+l_vestland = try(fromJSON(URLencode(url),flatten=T)) 
+d_vestland = l_vestland$data %>% as_tibble()
+d_vestland
+}
+
+get_all_vestland_sensors("6e375444-e7e7-47b4-bc4b-56bf18fbeab8")
+
