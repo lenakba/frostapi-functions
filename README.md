@@ -15,7 +15,7 @@ The dataframe includes the id, name and all other variables/features available
 from /sources including the latitude and longitude.
 
 Argument(s):
-*frost_api_id           Client ID to access the FROST api.          
+* `frost_api_id`           Client ID to access the FROST api.          
 
 
 !WARNING! The function extracts data at all data quality levels (0,1,2,3,4).
@@ -25,15 +25,15 @@ Function for obtaining latitude and longitude of a sensor, given sensor ID, and 
 The dataframe of sensors can be the direct output of ´get_all_vestland_sensors´.
 
 Argument(s):
-* sensor_id            String. ID of a sensor. For instance, "SN50810" denotes the sensor at Åsane, Bergen.
-* sensors_df           Dataframe or tibble. Must include the sensor id column, which must have the name "id".
+* `sensor_id`            String. ID of a sensor. For instance, "SN50810" denotes the sensor at Åsane, Bergen.
+* `sensors_df`           Dataframe or tibble. Must include the sensor id column, which must have the name "id".
 
 
 ## Example
 
 Example of how to use the `get_all_vestland_sensors`
 and `get_coordinates_by_id` functions. Note that this code 
-# is not reproducible, as it will throw an error
+is not reproducible, as it will throw an error
 if you do not replace the "my_frost_api_id" string with
 a valid Frost API ID. 
 
