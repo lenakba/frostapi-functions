@@ -4,7 +4,7 @@ Use of these tools require a Frost API ID (Client ID) which can be obtainted at 
 Please refer to this website for more information about the API, and for the API reference tables, see https://frost.met.no/api.html.
 
 Both functions can be found in the script `functions.R`. 
-The script `example.R` shows how the functions are used in practice.
+The script `example.R` shows how the functions are used in practice. This is the same example as in this readme.
 Required packages are `jsonlite` and `tidyverse`.
 
 ## get_all_vestland_sensors
