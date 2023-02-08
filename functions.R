@@ -24,12 +24,12 @@ get_all_vestland_sensors = function(frost_api_id){
     endpoint, "?",
     "county=", county)
 # Issue an HTTP GET request and extract JSON data
-l_vestland = try(fromJSON(URLencode(url),flatten=T)) 
-if(!is.list(l_vestland)) 
+vestland_l = try(fromJSON(URLencode(url),flatten=T)) 
+if(!is.list(vestland_l)) 
   stop("No connection to API. Check whether the FROST api ID is valid.")
 
-d_vestland = l_vestland$data %>% as_tibble()
-d_vestland
+vestland_df = vestland_l$data %>% as_tibble()
+vestland_df
 }
 
 # Function for obtaining latitude and longitude of a sensor
