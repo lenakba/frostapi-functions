@@ -1,2 +1,21 @@
-# frostapi-functions
-Contains functions for easier extraction of Vestland weather sensors from the FROST api, and for finding latitude and longitude of given sensor.
+# Frost API Functions
+Contains R functions for easy extraction of Vestland weather sensors from the Frost API, and for finding latitude and longitude of given sensor.
+Use of these tools require a Frost API ID (Client ID) which can be obtainted at the Frost API website: https://frost.met.no/howto.html.
+Please refer to this website for more information about the API, and for the API reference tables, see https://frost.met.no/api.html.
+
+Both functions can be found in the script ´functions.R´. 
+The script ´example.R´ shows how the functions are used in practice.
+Required packages are ´jsonlite´ and ´tidyverse´.
+
+## get_all_vestland_sensors
+
+Function for obtaining Vestland sensor data given a Frost API ID. Requires a Frost API ID (Client ID). 
+The function extracts data from /sources. Returns an object of class dataframe and class tibble. 
+The dataframe includes the id, name and all other variables/features available 
+from /sources including the latitude and longitude.
+
+!WARNING! The function extracts data at all data quality levels (0,1,2,3,4)
+
+## get_coordinates_by_id
+Function for obtaining latitude and longitude of a sensor, given sensor ID, and a dataframe of sensors. 
+The dataframe of sensors can be the direct output of ´get_all_vestland_sensors´
