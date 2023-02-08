@@ -41,13 +41,19 @@ d_sensors = get_all_vestland_sensors("6e375444-e7e7-47b4-bc4b-56bf18fbeab8")
 # sensors_df            # Dataframe or tibble. Must include the sensor id column, which must have the name "id"
 get_coordinates_by_id = function(sensor_id, sensors_df){
   stopifnot(is.data.frame(sensors_df))
+  if(!"id" %in% names(sensors_df))
+    stop("There are no column names in the given sensor data with the name 'id'.")
+  if(!sensor_id %in% sensors_df$id) 
+    stop("Sensor ID not found in data. Either sensor ID is invalid, or data is missing this sensor.")
+
   # find coordinates
   coords_df = sensors_df %>% filter(id == sensor_id) %>% select(geometry.coordinates)
   coords_l = coords_df$geometry.coordinates 
   
   # return vector of two elements
   element_number = length(coords_l)
-  stopifnot(element_number == 1)
+  if(element_number > 1) 
+    stop("The sensor data has one or more duplicates for the given sensor id.")
   coords_v = coords_l %>% pluck(element_number)
   coords_v
 }
