@@ -32,8 +32,6 @@ d_vestland = l_vestland$data %>% as_tibble()
 d_vestland
 }
 
-d_sensors = get_all_vestland_sensors("6e375444-e7e7-47b4-bc4b-56bf18fbeab8")
-
 # Function for obtaining latitude and longitude of a sensor
 # given sensor ID, and a dataframe of sensors.
 # Returns a 1X2 vector with latitude, longitude
