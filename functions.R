@@ -21,3 +21,10 @@ d_vestland = l_vestland$data %>% as_tibble()
 d_vestland
 }
 
+# function for obtaining latitude and longitude of a sensor
+# given sensor ID, and a dataframe of sensors
+get_coordinates_by_id = function(sensor_id, sensors_df){
+  coords_df = sensors_df %>% filter(id == sensor_id) %>% select(geometry.coordinates)
+  coords_v = coords_df$geometry.coordinates
+  coords_v
+}
