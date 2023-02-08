@@ -38,7 +38,7 @@ if you do not replace the "my_frost_api_id" string with
 a valid Frost API ID. 
 
 ```
-frost_api_id = "my_frost_api_id"
+frost_api_id = "my_frost_api_id" # Replace my_frost_api_id with your Client ID
 
 # This code assumes the ´functions.R´ script is in the same location as the 
 # `example.R` script, and that the source file location is in the working repo.
