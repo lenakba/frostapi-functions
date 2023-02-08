@@ -45,7 +45,9 @@ get_coordinates_by_id = function(sensor_id, sensors_df){
     stop("Sensor ID not found in data. Either sensor ID is invalid, or data is missing this sensor.")
 
   # find coordinates
-  coords_df = sensors_df %>% filter(id == sensor_id) %>% select(geometry.coordinates)
+  coords_df = sensors_df %>% 
+    filter(id == sensor_id) %>% 
+    select(geometry.coordinates)
   coords_l = coords_df$geometry.coordinates 
   
   # return vector of two elements
